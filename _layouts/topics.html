@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<h1>{{ page.long_desc | capitalize}}</h1>
+{{ content }}
+
+<h6>All Posts</h6>
+<ul>
+  {% assign filtered_posts = site.posts | where: 'topic', page.short_desc %}
+  {% for post in filtered_posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>

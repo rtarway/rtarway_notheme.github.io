@@ -1,0 +1,13 @@
+---
+title: Topics
+---
+<h1>Topics</h1>
+
+<ul>
+  {% for topics in site.topics %}
+    <li>
+      <h2><a href="{{ topics.url }}">{{ topics.long_desc | capitalize }}</a></h2>
+      <p>{{ topics.content | markdownify }}</p>
+    </li>
+  {% endfor %}
+</ul>

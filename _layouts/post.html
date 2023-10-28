@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+<h1>{{ page.topic }}</h1>
+<p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+
+
+
+{{ content }}
+
+
+<p>
+  <h5> link to all posts for {{ page.topic }}</h5>
+  {% assign filtered_topics = site.topics | where: 'short_desc', page.topic %}
+  {% for topics in filtered_topics%}
+    <li>
+      <h6><a href="{{ topics.url }}">{{ topics.long_desc | capitalize }}</a></h6>
+    </li>
+  {% endfor %}
+</p>
